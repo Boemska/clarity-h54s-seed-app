@@ -10,37 +10,37 @@ import { APP_BASE_HREF } from "@angular/common";
 
 describe('AppComponent', () => {
 
-    let fixture: ComponentFixture<any>;
-    let compiled: any;
+  let fixture: ComponentFixture<any>;
+  let compiled: any;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [
-                AppComponent,
-                AboutComponent,
-                HomeComponent
-            ],
-            imports: [
-                ClarityModule.forRoot(),
-                ROUTING
-            ],
-            providers: [{provide: APP_BASE_HREF, useValue: '/'}]
-        });
-
-        fixture = TestBed.createComponent(AppComponent);
-        fixture.detectChanges();
-        compiled = fixture.nativeElement;
-
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent,
+        AboutComponent,
+        HomeComponent
+      ],
+      imports: [
+        ClarityModule.forRoot(),
+        ROUTING
+      ],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     });
 
-    afterEach(() => {
-        fixture.destroy();
-    });
+    fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    compiled = fixture.nativeElement;
 
-    it('should create the app', async(() => {
-        expect(compiled).toBeTruthy();
-    }));
+
+  });
+
+  afterEach(() => {
+    fixture.destroy();
+  });
+
+  it('should create the app', async(() => {
+    expect(compiled).toBeTruthy();
+  }));
 
 
 });

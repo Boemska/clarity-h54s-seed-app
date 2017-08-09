@@ -1,7 +1,7 @@
 {
-  "name": "clarity-seed",
-  "version": "0.9.0",
-  "description": "Angular-CLI starter for a Clarity project",
+  "name": "clarity-h54s-seed-app",
+  "version": "0.0.1",
+  "description": "Angular-CLI starter for a H54S project with Clarity UI",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",

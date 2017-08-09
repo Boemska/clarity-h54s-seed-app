@@ -10,38 +10,38 @@ import { AboutComponent } from './about.component';
 
 describe('AboutComponent', () => {
 
-    let expectedMsg: string = 'This is a page to help demonstrate routing.';
+  let expectedMsg: string = 'This is a page to help demonstrate routing.';
 
-    let fixture: ComponentFixture<any>;
-    let compiled: any;
+  let fixture: ComponentFixture<any>;
+  let compiled: any;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [
-                AboutComponent
-            ],
-            imports: [
-                ClarityModule.forRoot()
-            ]
-        });
-
-        fixture = TestBed.createComponent(AboutComponent);
-        fixture.detectChanges();
-        compiled = fixture.nativeElement;
-
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AboutComponent
+      ],
+      imports: [
+        ClarityModule.forRoot()
+      ]
     });
 
-    afterEach(() => {
-        fixture.destroy();
-    });
+    fixture = TestBed.createComponent(AboutComponent);
+    fixture.detectChanges();
+    compiled = fixture.nativeElement;
 
-    it('should create the about page', async(() => {
-        expect(compiled).toBeTruthy();
-    }));
+  });
 
-    it(`should display: "${expectedMsg}"`, async(() => {
-        expect(compiled.querySelector("p").textContent).toMatch(expectedMsg);
-    }));
+  afterEach(() => {
+    fixture.destroy();
+  });
+
+  it('should create the about page', async(() => {
+    expect(compiled).toBeTruthy();
+  }));
+
+  it(`should display: "${expectedMsg}"`, async(() => {
+    expect(compiled.querySelector("p").textContent).toMatch(expectedMsg);
+  }));
 
 
 });

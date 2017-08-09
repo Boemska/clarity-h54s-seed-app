@@ -1,0 +1,12 @@
+@import '../../../../node_modules/clarity-ui/src/utils/helpers.clarity';
+
+@import '../../../../node_modules/clarity-ui/src/color/utils/colors.clarity';
+@import '../../../../node_modules/clarity-ui/src/color/utils/contrast-cache.clarity';
+@import '../../../../node_modules/clarity-ui/src/color/utils/helpers.clarity';
+
+@import '../../../../node_modules/clarity-ui/src/utils/variables.clarity';
+
+.loading-indicator {
+  line-height: $clr-header-height;
+  height: $clr-header-height;
+}
