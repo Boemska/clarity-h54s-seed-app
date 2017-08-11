@@ -10,7 +10,7 @@ import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { SasAdapterModule } from './sas-adapter/sas-adapter.module';
+import { BoemskaModule } from './boemska/boemska.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SasAdapterModule } from './sas-adapter/sas-adapter.module';
     HttpModule,
     ClarityModule.forRoot(),
     ROUTING,
-    SasAdapterModule
+    BoemskaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
