@@ -1,24 +1,27 @@
-<div class="login-sidebar" [class.active]="isActive">
-  <form class="login" (ngSubmit)="submit()">
-    <label class="title">
-      <h3 class="welcome">Welcome to</h3>
-        Company Product Name
-      <h5 class="hint">Use your Company ID to sign in or create one now</h5>
-    </label>
-    <div class="login-group">
-      <input [(ngModel)]="data.user" name="user" class="username" type="text" placeholder="Username">
-      <input [(ngModel)]="data.pass" name="pass" class="password" type="password" placeholder="Password">
-      <div class="checkbox">
-        <input type="checkbox" id="rememberme">
-        <label for="rememberme">
-          Remember me
-        </label>
+<div class="login-sidebar-wrapper" [class.active]="isActive">
+  <div class="login-sidebar">
+    <form class="login" (ngSubmit)="submit()">
+      <label class="title">
+        <h3 class="welcome">Welcome to</h3>
+          Company Product Name
+        <h5 class="hint">Use your Company ID to sign in or create one now</h5>
+      </label>
+      <div class="login-group">
+        <input [(ngModel)]="data.user" name="user" class="username" type="text" placeholder="Username">
+        <input [(ngModel)]="data.pass" name="pass" class="password" type="password" placeholder="Password">
+        <div class="checkbox">
+          <input type="checkbox" id="rememberme">
+          <label for="rememberme">
+            Remember me
+          </label>
+        </div>
+        <div class="error active">
+          Invalid user name or password
+        </div>
+        <button type="submit" class="btn btn-primary">NEXT</button>
+        <a href="javascript://" class="signup">Sign up for a Company ID</a>
       </div>
-      <div class="error active">
-        Invalid user name or password
-      </div>
-      <button type="submit" class="btn btn-primary">NEXT</button>
-      <a href="javascript://" class="signup">Sign up for a Company ID</a>
-    </div>
-  </form>
+    </form>
+  </div>
+  <div class="overlay"></div>
 </div>
