@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 import { LoginComponent } from './login.component';
 import { AdapterService } from '../adapter.service';
@@ -12,6 +14,9 @@ describe('LoginComponent', () => {
 
   let compiled: any;
 
+  let userInput: DebugElement;
+  let passInput: DebugElement;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
@@ -21,12 +26,15 @@ describe('LoginComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     compiled = fixture.nativeElement;
-  });
+
+    userInput = fixture.debugElement.query(By.css('input[name="user"]'));
+    passInput = fixture.debugElement.query(By.css('input[name="pass"]'));
+  }));
 
   it('should be created', () => {
     expect(component).toBeTruthy();
@@ -54,14 +62,21 @@ describe('LoginComponent', () => {
     })();
   });
 
-  // it('Test login', done => {
-  //   inject([AdapterService], async function (adapterService) {
-  //     spyOn(adapterService._adapter, 'login').and.callFake(function (program, tables, callback) {
-  //       callback(200);
-  //     });
+  it('Test login', inject([AdapterService], (adapterService) => {
+    spyOn(adapterService._adapter, 'login').and.callFake(function (user, pass, callback) {
+      callback(200);
+    });
 
-  //     expect(adapterService._adapter.login).toHaveBeenCalled();
-  //     done();
-  //   })();
-  // });
+    userInput.nativeElement.value = 'username';
+    userInput.nativeElement.dispatchEvent(new Event('input'));
+    passInput.nativeElement.value = 'password';
+    passInput.nativeElement.dispatchEvent(new Event('input'));
+
+    expect(component.data.user).not.toBe(null);
+    expect(component.data.pass).not.toBe(null);
+
+    compiled.querySelector('button[type="submit"]').click();
+
+    expect(adapterService._adapter.login).toHaveBeenCalledWith('username', 'password', jasmine.any(Function));
+  }));
 });

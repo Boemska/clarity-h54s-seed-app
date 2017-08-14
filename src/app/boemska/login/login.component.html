@@ -1,5 +1,5 @@
 <div class="login-sidebar" [class.active]="isActive">
-  <form class="login">
+  <form class="login" (ngSubmit)="submit()">
     <label class="title">
       <h3 class="welcome">Welcome to</h3>
         Company Product Name
@@ -17,7 +17,7 @@
       <div class="error active">
         Invalid user name or password
       </div>
-      <button type="submit" class="btn btn-primary" (click)="submit()">NEXT</button>
+      <button type="submit" class="btn btn-primary">NEXT</button>
       <a href="javascript://" class="signup">Sign up for a Company ID</a>
     </div>
   </form>
