@@ -4,6 +4,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  pointer-events: none;
+
+  >* {
+    pointer-events: auto;
+  }
 
   .login-sidebar {
     width: 400px;
