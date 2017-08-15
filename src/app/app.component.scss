@@ -2,7 +2,9 @@
 // This software is released under MIT license.
 // The full license information can be found in LICENSE in the root directory of this project.
 .clr-icon {
-  &.clr-clarity-logo {
+  &.header-logo {
     background-image: url(../images/boemska_logo.png);
+    width: 24px;
+    height: 24px;
   }
 }
