@@ -9,4 +9,17 @@
 .loading-indicator {
   line-height: $clr-header-height;
   height: $clr-header-height;
+
+  .spinner {
+    vertical-align: middle;
+  }
+
+  clr-signpost-content {
+    color: $clr-dark-gray;
+    cursor: auto;
+
+    p:first-child {
+      margin-top: 0;
+    }
+  }
 }

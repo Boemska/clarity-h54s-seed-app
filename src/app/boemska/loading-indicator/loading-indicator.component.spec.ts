@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { ClarityModule } from 'clarity-angular';
 
 import { LoadingIndicatorComponent } from './loading-indicator.component';
 import { AdapterService } from '../adapter.service';
@@ -12,6 +13,7 @@ describe('LoadingIndicatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ClarityModule.forChild()],
       declarations: [LoadingIndicatorComponent],
       providers: [AdapterService]
     })
@@ -31,10 +33,10 @@ describe('LoadingIndicatorComponent', () => {
   });
 
   it('should not be displayed by default', () => {
-    expect(compiled.querySelector(".loading-indicator").style.display).toMatch('none');
+    expect(compiled.querySelector(".loading-indicator .spinner").style.display).toMatch('none');
   });
 
-  it('should show/hide and hold the list of the files', done => {
+  it('should show/hide and hold the list of the requests', done => {
     inject([AdapterService], (adapterService) => {
       spyOn(adapterService._adapter, 'call').and.callFake(function(program, tables, callback) {
         setTimeout(callback, ~~(Math.random() * 100));
@@ -42,14 +44,20 @@ describe('LoadingIndicatorComponent', () => {
       var promise1 = adapterService.call('p1', null);
       var promise2 = adapterService.call('p2', null);
       fixture.detectChanges();
+
       expect(component.loading).toBe(true);
-      expect(component.files.length).toBe(2);
-      expect(compiled.querySelector(".loading-indicator").style.display).toMatch('block');
+      expect(component.requests.length).toBe(2);
+      expect(component.requests[0].running).toBe(true);
+      expect(compiled.querySelector(".loading-indicator .spinner").style.display).toMatch('block');
+      expect(compiled.querySelector(".loading-indicator clr-icon").style.display).toMatch('none');
+
       Promise.all([promise1, promise2]).then(() => {
         fixture.detectChanges();
         expect(component.loading).toBe(false);
-        expect(component.files.length).toBe(0);
-        expect(compiled.querySelector(".loading-indicator").style.display).toMatch('none');
+        expect(component.requests.length).toBe(2);
+        expect(component.requests[0].running).toBe(false);
+        expect(compiled.querySelector(".loading-indicator .spinner").style.display).toMatch('none');
+        expect(compiled.querySelector(".loading-indicator clr-icon").style.display).toMatch('block');
         done();
       })
     })();

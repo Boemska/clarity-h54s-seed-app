@@ -1,3 +1,14 @@
-<div [style.display]="!loading ? 'none': 'block'" class="loading-indicator">
-  <span class="spinner-sm"></span>
+<div class="loading-indicator">
+  <clr-signpost>
+    <span clrSignpostTrigger class="spinner spinner-sm spinner-inverse" [style.display]="loading ? 'inline-block' : 'none'"></span>
+    <clr-icon clrSignpostTrigger shape="check" class="is-inverse" [style.display]="loading ? 'none' : 'inline-block'"></clr-icon>
+
+    <clr-signpost-content [clrPosition]="'bottom-middle'" *clrIfOpen>
+      <p *ngFor="let request of requests">
+        <code class="clr-code">{{request.program}}</code>
+        &nbsp;service&nbsp;
+        {{request.running ? 'loading' : 'loaded'}}
+      </p>
+    </clr-signpost-content>
+  </clr-signpost>
 </div>

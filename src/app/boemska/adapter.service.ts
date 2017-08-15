@@ -3,11 +3,13 @@ import { Subject } from 'rxjs/Subject';
 
 import * as h54s from 'h54s';
 
+import { Service } from './service.interface';
+
 @Injectable()
 export class AdapterService {
-  private runningRequests: Map<Promise<any>, string> = new Map();
-  public runningFileNames = new Subject<Array<string>>();
-  public shouldLogin = new Subject<boolean>();
+  public requests: Map<Promise<any>, Service> = new Map();
+  public requestsChanged: Subject<null> = new Subject<null>();
+  public shouldLogin: Subject<boolean> = new Subject<boolean>();
   private _adapter: h54s;
 
   constructor() {
@@ -45,19 +47,20 @@ export class AdapterService {
       });
     });
 
-    this.runningRequests.set(promise, program);
-    this._update();
+    this.requests.set(promise, {
+      program,
+      running: true
+    });
+    this.requestsChanged.next();
 
     promise.then(() => {
-      this.runningRequests.delete(promise);
-      this._update();
+      this.requests.get(promise).running = false;
+      this.requestsChanged.next();
+    }).catch(() => {
+      this.requests.get(promise).running = false;
+      this.requestsChanged.next();
     });
 
     return promise;
   }
-
-  private _update(): void {
-    this.runningFileNames.next(Array.from(this.runningRequests.values()));
-  }
-
 }
