@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { ClarityModule } from 'clarity-angular';
 
 import { LoginComponent } from './login.component';
 import { AdapterService } from '../adapter.service';
@@ -19,7 +20,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [
+        FormsModule,
+        ClarityModule.forChild()
+      ],
       declarations: [LoginComponent],
       providers: [AdapterService]
     })
@@ -29,8 +33,9 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
     compiled = fixture.nativeElement;
+
+    fixture.detectChanges();
 
     userInput = fixture.debugElement.query(By.css('input[name="user"]'));
     passInput = fixture.debugElement.query(By.css('input[name="pass"]'));
@@ -50,13 +55,10 @@ describe('LoginComponent', () => {
       });
 
       var promise = adapterService.call('p1', null);
-      fixture.detectChanges();
       expect(component.isActive).toBe(true);
 
       await adapterService.login('user', 'pass');
-      await promise;
 
-      fixture.detectChanges();
       expect(component.isActive).toBe(false);
       done();
     })();

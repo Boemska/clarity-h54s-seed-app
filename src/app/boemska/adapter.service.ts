@@ -36,7 +36,7 @@ export class AdapterService {
       this._adapter.call(program, tables, (err, res) => {
         if(err) {
           if (err.type === 'notLoggedinError') {
-            this.shouldLogin.next(true);
+            return this.shouldLogin.next(true);
           } else {
             return reject(err);
           }

@@ -15,7 +15,10 @@ interface User {
 })
 export class LoginComponent implements OnInit {
   private _subscription: Subscription;
-  public isActive: boolean;
+  public isActive: Boolean;
+  public loading: Boolean = false;
+  public alertClosed: Boolean = true;
+  public errorMsg: String;
   public data: User = {
     user: null,
     pass: null
@@ -34,9 +37,33 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.adapter.login(this.data.user, this.data.pass).then(status => {
+    if(this.loading) return;
 
+    this.loading = true;
+
+    this.adapter.login(this.data.user, this.data.pass).then(status => {
+      this.loading = false;
+
+      switch(status) {
+        case -1:
+          this.errorMsg = 'Username or password invalid';
+          this.alertClosed = false;
+          break;
+        case -2:
+          this.errorMsg = 'Problem communicating with server';
+          this.alertClosed = false;
+          break;
+        case 200:
+          this.errorMsg = null;
+          break;
+        default:
+          this.errorMsg = 'Error with status code ' + status;
+          this.alertClosed = false;
+      }
     }).catch(err => {
+      this.loading = false;
+      this.errorMsg = err.message;
+      this.alertClosed = false;
       console.error(err);
     });
   }

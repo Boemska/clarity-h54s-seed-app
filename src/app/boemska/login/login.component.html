@@ -9,16 +9,12 @@
       <div class="login-group">
         <input [(ngModel)]="data.user" name="user" class="username" type="text" placeholder="Username">
         <input [(ngModel)]="data.pass" name="pass" class="password" type="password" placeholder="Password">
-        <div class="checkbox">
-          <input type="checkbox" id="rememberme">
-          <label for="rememberme">
-            Remember me
-          </label>
-        </div>
-        <div class="error active">
-          Invalid user name or password
-        </div>
-        <button type="submit" class="btn btn-primary">NEXT</button>
+        <clr-alert [clrAlertType]="'alert-danger'" [(clrAlertClosed)]="alertClosed">
+          <div clr-alert-item class="alert-item">
+            <span class="alert-text">{{errorMsg}}</span>
+          </div>
+        </clr-alert>
+        <button [clrLoading]="loading" [disabled]="loading" type="submit" class="btn btn-primary">Log in</button>
         <a href="javascript://" class="signup">Sign up for a Company ID</a>
       </div>
     </form>
