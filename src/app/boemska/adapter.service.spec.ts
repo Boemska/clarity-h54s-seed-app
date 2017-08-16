@@ -1,13 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AdapterService } from './adapter.service';
+import { UserService } from './user.service';
 
 import * as h54sError from 'h54s/src/error';
 
 describe('AdapterService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AdapterService]
+      providers: [
+        AdapterService,
+        UserService
+      ]
     });
   });
 

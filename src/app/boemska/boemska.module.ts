@@ -6,6 +6,8 @@ import { ClarityModule } from 'clarity-angular';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 import { AdapterService } from './adapter.service';
 import { LoginComponent } from './login/login.component';
+import { UserService } from './user.service';
+import { UserNavDropdownComponent } from './user-nav-dropdown/user-nav-dropdown.component';
 
 @NgModule({
   imports: [
@@ -13,9 +15,17 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ClarityModule.forRoot()
   ],
-  declarations: [LoadingIndicatorComponent, LoginComponent],
-  exports: [LoadingIndicatorComponent, LoginComponent],
-  providers: [AdapterService]
+  declarations: [
+    LoadingIndicatorComponent,
+    LoginComponent,
+    UserNavDropdownComponent
+  ],
+  exports: [
+    LoadingIndicatorComponent,
+    LoginComponent,
+    UserNavDropdownComponent
+  ],
+  providers: [AdapterService, UserService]
 })
 export class BoemskaModule implements OnInit {
 

@@ -3,6 +3,7 @@ import { ClarityModule } from 'clarity-angular';
 
 import { LoadingIndicatorComponent } from './loading-indicator.component';
 import { AdapterService } from '../adapter.service';
+import { UserService } from '../user.service';
 
 describe('LoadingIndicatorComponent', () => {
   let component: LoadingIndicatorComponent;
@@ -15,7 +16,7 @@ describe('LoadingIndicatorComponent', () => {
     TestBed.configureTestingModule({
       imports: [ClarityModule.forChild()],
       declarations: [LoadingIndicatorComponent],
-      providers: [AdapterService]
+      providers: [AdapterService, UserService]
     })
     .compileComponents();
   }));

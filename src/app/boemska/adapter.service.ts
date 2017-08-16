@@ -4,6 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import * as h54s from 'h54s';
 
 import { Service } from './service.interface';
+import { UserService } from './user.service';
 
 @Injectable()
 export class AdapterService {
@@ -12,7 +13,7 @@ export class AdapterService {
   public shouldLogin: Subject<boolean> = new Subject<boolean>();
   private _adapter: h54s;
 
-  constructor() {
+  constructor(private _userService: UserService) {
     this._adapter = new h54s({
       hostUrl: 'https://apps.boemskats.com/'
     });
@@ -43,6 +44,18 @@ export class AdapterService {
             return reject(err);
           }
         }
+
+        if(!this._userService.user && res.userInfo) {
+          this._userService.user = {
+            username: res.userInfo.USERNAME,
+            pictureUrl: res.userInfo.PICTUREURL
+          };
+        } else if (!this._userService.user && res.requestingPerson) {
+          this._userService.user = {
+            username: res.requestingPerson
+          };
+        }
+
         resolve(res);
       });
     });

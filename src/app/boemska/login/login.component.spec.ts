@@ -6,6 +6,7 @@ import { ClarityModule } from 'clarity-angular';
 
 import { LoginComponent } from './login.component';
 import { AdapterService } from '../adapter.service';
+import { UserService } from '../user.service';
 
 import * as h54sError from 'h54s/src/error';
 
@@ -25,7 +26,7 @@ describe('LoginComponent', () => {
         ClarityModule.forChild()
       ],
       declarations: [LoginComponent],
-      providers: [AdapterService]
+      providers: [AdapterService, UserService]
     })
     .compileComponents();
   }));
