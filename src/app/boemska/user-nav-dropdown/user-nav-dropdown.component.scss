@@ -11,9 +11,21 @@
   line-height: $clr-header-height;
   height: $clr-header-height;
 
-  >.dropdown-toggle {
+  >button.dropdown-toggle {
     color: $clr-near-white;
     min-width: 200px;
+    position: relative;
+
+    &:after {
+      content: "";
+      background-color: $clr-near-white;
+      opacity: .15;
+      left: 0;
+      position: absolute;
+      width: 1px;
+      height: 40px;
+      top: 10px;
+    }
   }
 
   clr-dropdown-menu {
@@ -28,9 +40,18 @@
     .dropdown-item {
       display: flex;
       flex-direction: row;
+      position: relative;
+
+      .badge {
+        position: absolute;
+        top: 8px;
+        right: 24px;
+        margin-right: 0;
+      }
 
       form {
         padding: 0;
+        width: 100%;
 
         .form-group {
           padding: 0;
@@ -38,6 +59,7 @@
 
           .toggle-switch {
             margin: 3px 0 3px auto;
+            width: 100%;
 
             label {
               font-size: 14px;

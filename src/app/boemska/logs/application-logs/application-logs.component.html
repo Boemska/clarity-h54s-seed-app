@@ -1,0 +1,4 @@
+<div *ngFor="let log of logs">
+  <p>{{log.time.toString()}}:</p>
+  <pre>{{log.message}} <span *ngIf="log.sasProgram">({{log.sasProgram}})</span></pre>
+</div>

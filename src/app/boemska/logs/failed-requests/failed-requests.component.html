@@ -1,0 +1,9 @@
+<clr-stack-view>
+  <clr-stack-block *ngFor="let log of logs">
+    <clr-stack-label>{{log.sasProgram}}</clr-stack-label>
+    <clr-stack-content>{{log.time.toString()}}</clr-stack-content>
+    <clr-stack-block class="data">
+      <clr-stack-content [innerHtml]="log.responseHtml"></clr-stack-content>
+    </clr-stack-block>
+  </clr-stack-block>
+</clr-stack-view>

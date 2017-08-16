@@ -8,17 +8,32 @@
       <form>
         <div class="form-group">
           <div class="toggle-switch">
-            <input id="debug-toggle" type="checkbox" [(ngModel)]="debugMode" [ngModelOptions]="{standalone: true}"/>
+            <input id="debug-toggle" type="checkbox" [(ngModel)]="debugMode" (ngModelChange)="onDebugModeChange()" [ngModelOptions]="{standalone: true}"/>
             <label for="debug-toggle">Debug Mode</label>
           </div>
         </div>
       </form>
     </div>
-    <a href="..." clrDropdownItem>Application Log</a>
-    <a href="..." clrDropdownItem>Debug Log</a>
-    <a href="..." clrDropdownItem>Failed Requests</a>
-    <a href="..." clrDropdownItem>Errors</a>
+    <a href="..." [routerLink]="['/application-logs']" clrDropdownItem>
+      <span>Application Logs</span>
+      <span class="badge" *ngIf="appLogs.length > 0">{{appLogs.length}}</span>
+    </a>
+    <a href="..." [routerLink]="['/debug-logs']" clrDropdownItem>
+      <span>Debug Logs</span>
+      <span class="badge" *ngIf="debugLogs.length > 0">{{debugLogs.length}}</span>
+    </a>
+    <a href="..." [routerLink]="['/failed-requests']" clrDropdownItem>
+      <span>Failed Requests</span>
+      <span class="badge" *ngIf="failedReqs.length > 0">{{failedReqs.length}}</span>
+    </a>
+    <a href="..." [routerLink]="['/errors']" clrDropdownItem>
+      <span>Errors</span>
+      <span class="badge" *ngIf="sasErrors.length > 0">{{sasErrors.length}}</span>
+    </a>
     <div class="separator"></div>
-    <a href="..." clrDropdownItem>Log Out</a>
+    <a href="..." clrDropdownItem>
+      <span>Log Out</span>
+      <clr-icon shape="logout"></clr-icon>
+    </a>
   </clr-dropdown-menu>
 </clr-dropdown>

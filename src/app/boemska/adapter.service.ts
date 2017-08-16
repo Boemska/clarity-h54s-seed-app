@@ -11,12 +11,15 @@ export class AdapterService {
   public requests: Map<Promise<any>, Service> = new Map();
   public requestsChanged: Subject<null> = new Subject<null>();
   public shouldLogin: Subject<boolean> = new Subject<boolean>();
+  private _debugMode: Boolean;
   private _adapter: h54s;
 
   constructor(private _userService: UserService) {
     this._adapter = new h54s({
       hostUrl: 'https://apps.boemskats.com/'
     });
+    // setting it here to invoke setter method
+    this.debugMode = true;
   }
 
   login(user, pass): Promise<Number> {
@@ -45,12 +48,12 @@ export class AdapterService {
           }
         }
 
-        if(!this._userService.user && res.userInfo) {
+        if(!this._userService.user && res && res.userInfo) {
           this._userService.user = {
             username: res.userInfo.USERNAME,
             pictureUrl: res.userInfo.PICTUREURL
           };
-        } else if (!this._userService.user && res.requestingPerson) {
+        } else if (!this._userService.user && res && res.requestingPerson) {
           this._userService.user = {
             username: res.requestingPerson
           };
@@ -75,5 +78,13 @@ export class AdapterService {
     });
 
     return promise;
+  }
+
+  get debugMode() {
+    return this._debugMode;
+  }
+
+  set debugMode(debugMode) {
+    this._debugMode = this._adapter.debug = debugMode;
   }
 }
