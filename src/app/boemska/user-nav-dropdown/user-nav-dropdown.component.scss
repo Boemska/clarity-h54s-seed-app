@@ -1,0 +1,52 @@
+// it must be a better way to read clarity variables...
+@import '../../../../node_modules/clarity-ui/src/utils/helpers.clarity';
+
+@import '../../../../node_modules/clarity-ui/src/color/utils/colors.clarity';
+@import '../../../../node_modules/clarity-ui/src/color/utils/contrast-cache.clarity';
+@import '../../../../node_modules/clarity-ui/src/color/utils/helpers.clarity';
+
+@import '../../../../node_modules/clarity-ui/src/utils/variables.clarity';
+
+.boemska-nav-dropdown {
+  line-height: $clr-header-height;
+  height: $clr-header-height;
+
+  >.dropdown-toggle {
+    color: $clr-near-white;
+    min-width: 200px;
+  }
+
+  clr-dropdown-menu {
+    color: $clr-dark-gray;
+    min-width: 200px;
+
+    .separator {
+      margin: 10px 0;
+      border-bottom: 1px solid $clr-light-gray;
+    }
+
+    .dropdown-item {
+      display: flex;
+      flex-direction: row;
+
+      form {
+        padding: 0;
+
+        .form-group {
+          padding: 0;
+          margin: 0;
+
+          .toggle-switch {
+            margin: 3px 0 3px auto;
+
+            label {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+

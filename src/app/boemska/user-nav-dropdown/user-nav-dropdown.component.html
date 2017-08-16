@@ -1,0 +1,24 @@
+<clr-dropdown class="boemska-nav-dropdown" clrMenuPosition="bottom-right">
+  <button class="nav-text" clrDropdownToggle>
+    {{userName}}
+    <clr-icon shape="caret down"></clr-icon>
+  </button>
+  <clr-dropdown-menu>
+    <div clrDropdownItem>
+      <form>
+        <div class="form-group">
+          <div class="toggle-switch">
+            <input id="debug-toggle" type="checkbox" [(ngModel)]="debugMode" [ngModelOptions]="{standalone: true}"/>
+            <label for="debug-toggle">Debug Mode</label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <a href="..." clrDropdownItem>Application Log</a>
+    <a href="..." clrDropdownItem>Debug Log</a>
+    <a href="..." clrDropdownItem>Failed Requests</a>
+    <a href="..." clrDropdownItem>Errors</a>
+    <div class="separator"></div>
+    <a href="..." clrDropdownItem>Log Out</a>
+  </clr-dropdown-menu>
+</clr-dropdown>

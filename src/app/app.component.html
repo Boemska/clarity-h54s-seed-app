@@ -8,18 +8,11 @@
     </div>
     <div class="header-actions">
       <div class="nav-text">
-        <sas-adapter-loading-indicator></sas-adapter-loading-indicator>
+        <boemska-loading-indicator></boemska-loading-indicator>
       </div>
-      <clr-dropdown clrMenuPosition="bottom-right">
-        <button class="nav-text" clrDropdownToggle>
-          john.doe@vmware.com
-          <clr-icon shape="caret down"></clr-icon>
-        </button>
-        <clr-dropdown-menu>
-          <a href="..." clrDropdownItem>Preferences</a>
-          <a href="..." clrDropdownItem>Log out</a>
-        </clr-dropdown-menu>
-      </clr-dropdown>
+      <div class="dropdown">
+        <boemska-user-nav-dropdown></boemska-user-nav-dropdown>
+      </div>
     </div>
   </clr-header>
   <nav class="sub-nav" [clr-nav-level]="1">
