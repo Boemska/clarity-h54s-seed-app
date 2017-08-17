@@ -8,3 +8,7 @@
     height: 24px;
   }
 }
+
+:host /deep/ .center-text {
+  text-align: center;
+}
