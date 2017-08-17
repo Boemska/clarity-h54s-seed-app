@@ -1,6 +1,8 @@
 <clr-dropdown class="boemska-nav-dropdown" clrMenuPosition="bottom-right">
   <button class="nav-text" clrDropdownToggle>
-    {{userName}}
+    <span>{{userName}}</span>
+    <span class="badge badge-danger" *ngIf="failedReqs.length > 0">{{failedReqs.length}}</span>
+    <span class="badge badge-warning" *ngIf="debugLogs.length > 0">{{debugLogs.length}}</span>
     <clr-icon shape="caret down"></clr-icon>
   </button>
   <clr-dropdown-menu>

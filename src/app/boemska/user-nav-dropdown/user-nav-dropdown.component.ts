@@ -22,6 +22,8 @@ export class UserNavDropdownComponent implements OnInit {
   public failedReqs: Array<any> = [];
   public sasErrors: Array<any> = [];
 
+  public requestsCount: Number = 0;
+
   constructor(private _userService: UserService, private _adapterService: AdapterService) {
     this.debugMode = this._adapterService.debugMode;
   }
@@ -32,6 +34,8 @@ export class UserNavDropdownComponent implements OnInit {
       this.debugLogs = adapterLogs.get.getDebugData();
       this.failedReqs = adapterLogs.get.getFailedRequests();
       this.sasErrors = adapterLogs.get.getSasErrors();
+
+      this.requestsCount = this.debugLogs.length + this.failedReqs.length;
     });
 
     this._userSub = this._userService.userChange.subscribe(user => {
