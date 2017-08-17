@@ -7,6 +7,9 @@ import { async, TestBed, ComponentFixture } from "@angular/core/testing";
 import { ClarityModule } from 'clarity-angular';
 import { HomeComponent } from './home.component';
 
+import { AdapterService } from '../boemska/adapter.service';
+import { UserService } from '../boemska/user.service';
+
 
 describe('HomeComponent', () => {
 
@@ -22,6 +25,10 @@ describe('HomeComponent', () => {
       ],
       imports: [
         ClarityModule.forRoot()
+      ],
+      providers: [
+        AdapterService,
+        UserService
       ]
     });
 
