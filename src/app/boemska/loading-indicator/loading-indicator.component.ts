@@ -6,7 +6,7 @@ import { AdapterService } from '../adapter.service';
 import { Service } from '../service.interface';
 
 @Component({
-  selector: 'sas-adapter-loading-indicator',
+  selector: 'boemska-loading-indicator',
   templateUrl: './loading-indicator.component.html',
   styleUrls: ['./loading-indicator.component.scss']
 })
@@ -19,7 +19,7 @@ export class LoadingIndicatorComponent implements OnInit {
 
   ngOnInit(): void {
     this._loadingSub = this.adapterService.requestsChanged.subscribe(() => {
-      this.requests = Array.from(this.adapterService.requests.values());
+      this.requests = Array.from(this.adapterService.requests.values()).reverse();
       let loading = false;
       for (let file of this.requests) {
         if(file.running) {

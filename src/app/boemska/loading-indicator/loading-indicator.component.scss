@@ -18,8 +18,27 @@
     color: $clr-dark-gray;
     cursor: auto;
 
-    p:first-child {
-      margin-top: 0;
+    p {
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      span {
+        &.running {
+          color: $clr-yellow;
+        }
+        &.success {
+          color: $clr-green;
+        }
+        &.fail {
+          color: $clr-red;
+        }
+      }
     }
   }
 }

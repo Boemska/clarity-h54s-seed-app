@@ -65,15 +65,20 @@ export class AdapterService {
 
     this.requests.set(promise, {
       program,
-      running: true
+      running: true,
+      successful: null
     });
     this.requestsChanged.next();
 
     promise.then(() => {
-      this.requests.get(promise).running = false;
+      let request = this.requests.get(promise);
+      request.running = false;
+      request.successful = true;
       this.requestsChanged.next();
     }).catch(() => {
-      this.requests.get(promise).running = false;
+      let request = this.requests.get(promise);
+      request.running = false;
+      request.successful = false;
       this.requestsChanged.next();
     });
 
