@@ -9,7 +9,7 @@ interface User {
 }
 
 @Component({
-  selector: 'app-login',
+  selector: 'boemska-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

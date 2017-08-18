@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import * as adapterLogs from 'h54s/src/logs';
 
 @Component({
-  selector: 'app-errors',
+  selector: 'boemska-errors',
   templateUrl: './errors.component.html',
   styleUrls: ['./errors.component.scss']
 })
