@@ -92,21 +92,23 @@ describe('UserNavDropdownComponent', () => {
       return [{}, {}, {}];
     });
 
-    expect(headerButtonEl.nativeElement.querySelector('span.badge')).not.toBeTruthy();
-    fixture.detectChanges();
-    expect(headerButtonEl.nativeElement.querySelector('span.badge')).not.toBeTruthy();
+    let badges = headerButtonEl.nativeElement.querySelectorAll('span.badge');
+    expect(badges.length).toBe(1);
+    expect(badges[0]).toBeTruthy();
+    expect(badges[0].classList.contains('hidden')).toBe(true);
 
     await adapterService.call();
 
     fixture.detectChanges();
 
-    let failedReqsBadge = headerButtonEl.nativeElement.querySelectorAll('span.badge')[0];
-    let debugLogsBadge = headerButtonEl.nativeElement.querySelectorAll('span.badge')[1];
-    expect(failedReqsBadge).toBeTruthy();
-    expect(debugLogsBadge).toBeTruthy();
-    // badge should be 4 - application logs and errors should be ignored
-    expect(failedReqsBadge.textContent).toBe('3');
-    expect(debugLogsBadge.textContent).toBe('2');
+    let badge = headerButtonEl.nativeElement.querySelector('span.badge');
+    expect(badge.textContent).toBe('2');
+
+    component.debugMode = false;
+    fixture.detectChanges();
+    // it's another dom element after debugMode change
+    badge = headerButtonEl.nativeElement.querySelector('span.badge');
+    expect(badge.textContent).toBe('3');
   }));
 
 });

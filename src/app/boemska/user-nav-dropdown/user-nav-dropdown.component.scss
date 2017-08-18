@@ -26,6 +26,12 @@
       height: 40px;
       top: 10px;
     }
+
+    .badge {
+      &.hidden {
+        visibility: hidden;
+      }
+    }
   }
 
   clr-dropdown-menu {

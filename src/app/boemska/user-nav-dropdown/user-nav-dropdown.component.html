@@ -1,8 +1,8 @@
 <clr-dropdown class="boemska-nav-dropdown" clrMenuPosition="bottom-right">
   <button class="nav-text" clrDropdownToggle>
     <span>{{userName}}</span>
-    <span class="badge badge-danger" *ngIf="failedReqs.length > 0">{{failedReqs.length}}</span>
-    <span class="badge badge-warning" *ngIf="debugLogs.length > 0">{{debugLogs.length}}</span>
+    <span class="badge badge-danger" *ngIf="!debugMode" [class.hidden]="failedReqs.length === 0">{{failedReqs.length}}</span>
+    <span class="badge badge-warning" *ngIf="debugMode" [class.hidden]="debugLogs.length === 0">{{debugLogs.length}}</span>
     <clr-icon shape="caret down"></clr-icon>
   </button>
   <clr-dropdown-menu>
@@ -20,17 +20,17 @@
       <span>Application Logs</span>
       <span class="badge" *ngIf="appLogs.length > 0">{{appLogs.length}}</span>
     </a>
-    <a href="..." [routerLink]="['/debug-logs']" clrDropdownItem>
+    <a *ngIf="debugMode" href="..." [routerLink]="['/debug-logs']" clrDropdownItem>
       <span>Debug Logs</span>
-      <span class="badge" *ngIf="debugLogs.length > 0">{{debugLogs.length}}</span>
+      <span class="badge badge-info" *ngIf="debugLogs.length > 0">{{debugLogs.length}}</span>
     </a>
-    <a href="..." [routerLink]="['/failed-requests']" clrDropdownItem>
+    <a *ngIf="!debugMode" href="..." [routerLink]="['/failed-requests']" clrDropdownItem>
       <span>Failed Requests</span>
-      <span class="badge" *ngIf="failedReqs.length > 0">{{failedReqs.length}}</span>
+      <span class="badge badge-danger" *ngIf="failedReqs.length > 0">{{failedReqs.length}}</span>
     </a>
     <a href="..." [routerLink]="['/errors']" clrDropdownItem>
       <span>Errors</span>
-      <span class="badge" *ngIf="sasErrors.length > 0">{{sasErrors.length}}</span>
+      <span class="badge badge-warning" *ngIf="sasErrors.length > 0">{{sasErrors.length}}</span>
     </a>
     <div class="separator"></div>
     <a href="..." clrDropdownItem>
