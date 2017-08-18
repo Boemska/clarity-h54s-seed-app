@@ -2,7 +2,7 @@
   <button class="nav-text" clrDropdownToggle>
     <span>{{userName}}</span>
     <span class="badge badge-danger" *ngIf="!debugMode" [class.hidden]="failedReqs.length === 0">{{failedReqs.length}}</span>
-    <span class="badge badge-warning" *ngIf="debugMode" [class.hidden]="debugLogs.length === 0">{{debugLogs.length}}</span>
+    <span class="badge badge-info" *ngIf="debugMode" [class.hidden]="debugLogs.length === 0">{{debugLogs.length}}</span>
     <clr-icon shape="caret down"></clr-icon>
   </button>
   <clr-dropdown-menu>
