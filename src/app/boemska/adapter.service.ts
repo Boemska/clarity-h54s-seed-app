@@ -6,6 +6,8 @@ import * as h54s from 'h54s';
 import { Service } from './service.interface';
 import { UserService } from './user.service';
 
+import { AdapterSettings } from './settings';
+
 @Injectable()
 export class AdapterService {
   public requests: Map<Promise<any>, Service> = new Map();
@@ -15,9 +17,7 @@ export class AdapterService {
   private _adapter: h54s;
 
   constructor(private _userService: UserService) {
-    this._adapter = new h54s({
-      hostUrl: 'https://apps.boemskats.com/'
-    });
+    this._adapter = new h54s(AdapterSettings);
     // setting it here to invoke setter method
     this.debugMode = true;
   }
