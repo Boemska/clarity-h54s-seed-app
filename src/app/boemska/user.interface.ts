@@ -1,4 +1,4 @@
 export interface User {
-  username: String,
-  pictureUrl?: String
+  username: string,
+  pictureUrl?: string
 }

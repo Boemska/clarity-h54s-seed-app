@@ -12,8 +12,8 @@ import * as adapterLogs from 'h54s/src/logs';
   styleUrls: ['./user-nav-dropdown.component.scss']
 })
 export class UserNavDropdownComponent implements OnInit, OnDestroy {
-  public userName: String = 'Not logged in';
-  public debugMode: Boolean;
+  public userName: string = 'Not logged in';
+  public debugMode: boolean;
   private _reqSub: Subscription;
   private _userSub: Subscription;
 
@@ -22,7 +22,7 @@ export class UserNavDropdownComponent implements OnInit, OnDestroy {
   public failedReqs: Array<any> = [];
   public sasErrors: Array<any> = [];
 
-  public requestsCount: Number = 0;
+  public requestsCount: number = 0;
 
   constructor(private _userService: UserService, private _adapterService: AdapterService) {
     this.debugMode = this._adapterService.debugMode;

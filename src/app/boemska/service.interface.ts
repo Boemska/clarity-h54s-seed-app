@@ -1,5 +1,5 @@
 export interface Service {
-  program: String,
-  running: Boolean,
-  successful?: Boolean
+  program: string,
+  running: boolean,
+  successful?: boolean
 }

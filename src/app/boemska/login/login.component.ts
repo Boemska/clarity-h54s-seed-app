@@ -15,10 +15,10 @@ interface User {
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private _subscription: Subscription;
-  public isActive: Boolean;
-  public loading: Boolean = false;
-  public alertClosed: Boolean = true;
-  public errorMsg: String;
+  public isActive: boolean;
+  public loading: boolean = false;
+  public alertClosed: boolean = true;
+  public errorMsg: string;
   public data: User = {
     user: null,
     pass: null

@@ -13,7 +13,7 @@ export class AdapterService {
   public requests: Map<Promise<any>, Service> = new Map();
   public requestsChanged: Subject<null> = new Subject<null>();
   public shouldLogin: Subject<boolean> = new Subject<boolean>();
-  private _debugMode: Boolean;
+  private _debugMode: boolean;
   private _adapter: h54s;
 
   constructor(private _userService: UserService) {
@@ -22,7 +22,7 @@ export class AdapterService {
     this.debugMode = true;
   }
 
-  login(user, pass): Promise<Number> {
+  login(user, pass): Promise<number> {
     return new Promise((resolve, reject) => {
       try {
         this._adapter.login(user, pass, status => {
