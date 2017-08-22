@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { AdapterService } from '../adapter.service';
@@ -11,7 +11,7 @@ import * as adapterLogs from 'h54s/src/logs';
   templateUrl: './user-nav-dropdown.component.html',
   styleUrls: ['./user-nav-dropdown.component.scss']
 })
-export class UserNavDropdownComponent implements OnInit {
+export class UserNavDropdownComponent implements OnInit, OnDestroy {
   public userName: String = 'Not logged in';
   public debugMode: Boolean;
   private _reqSub: Subscription;

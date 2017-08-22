@@ -3,7 +3,7 @@
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
-import { Component } from "@angular/core";
+import { Component, AfterViewInit } from "@angular/core";
 
 import { AdapterService } from '../boemska/adapter.service';
 
@@ -11,7 +11,7 @@ import { AdapterService } from '../boemska/adapter.service';
   styleUrls: ['./home.component.scss'],
   templateUrl: './home.component.html',
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
   constructor(private adapterService: AdapterService) { }
 
   ngAfterViewInit(): void {

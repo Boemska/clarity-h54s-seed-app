@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AdapterService } from '../adapter.service';
@@ -13,7 +13,7 @@ interface User {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   private _subscription: Subscription;
   public isActive: Boolean;
   public loading: Boolean = false;
@@ -37,14 +37,16 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    if(this.loading) return;
+    if (this.loading) {
+      return;
+    }
 
     this.loading = true;
 
     this.adapter.login(this.data.user, this.data.pass).then(status => {
       this.loading = false;
 
-      switch(status) {
+      switch (status) {
         case -1:
           this.errorMsg = 'Username or password invalid';
           this.alertClosed = false;

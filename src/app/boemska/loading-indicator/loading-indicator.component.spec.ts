@@ -8,7 +8,6 @@ import { UserService } from '../user.service';
 describe('LoadingIndicatorComponent', () => {
   let component: LoadingIndicatorComponent;
   let fixture: ComponentFixture<LoadingIndicatorComponent>;
-  let adapterService: AdapterService;
 
   let compiled: any;
 
@@ -40,10 +39,10 @@ describe('LoadingIndicatorComponent', () => {
   it('should show/hide and hold the list of the requests', done => {
     inject([AdapterService], (adapterService) => {
       spyOn(adapterService._adapter, 'call').and.callFake(function(program, tables, callback) {
-        setTimeout(callback, ~~(Math.random() * 100));
+        setTimeout(callback, Math.round(Math.random() * 100));
       });
-      var promise1 = adapterService.call('p1', null);
-      var promise2 = adapterService.call('p2', null);
+      const promise1 = adapterService.call('p1', null);
+      const promise2 = adapterService.call('p2', null);
       fixture.detectChanges();
 
       expect(component.loading).toBe(true);

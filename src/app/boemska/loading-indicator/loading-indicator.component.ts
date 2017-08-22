@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AdapterService } from '../adapter.service';
@@ -10,7 +10,7 @@ import { Service } from '../service.interface';
   templateUrl: './loading-indicator.component.html',
   styleUrls: ['./loading-indicator.component.scss']
 })
-export class LoadingIndicatorComponent implements OnInit {
+export class LoadingIndicatorComponent implements OnInit, OnDestroy {
   public loading: boolean = false;
   public requests: Service[] = [];
   private _loadingSub: Subscription;
@@ -22,7 +22,7 @@ export class LoadingIndicatorComponent implements OnInit {
       this.requests = Array.from(this.adapterService.requests.values()).reverse();
       let loading = false;
       for (let file of this.requests) {
-        if(file.running) {
+        if (file.running) {
           loading = true;
           break;
         }

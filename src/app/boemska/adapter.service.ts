@@ -38,9 +38,9 @@ export class AdapterService {
   }
 
   call(program, tables) {
-    var promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
       this._adapter.call(program, tables, (err, res) => {
-        if(err) {
+        if (err) {
           if (err.type === 'notLoggedinError') {
             return this.shouldLogin.next(true);
           } else {
@@ -48,7 +48,7 @@ export class AdapterService {
           }
         }
 
-        if(!this._userService.user && res && res.userInfo) {
+        if (!this._userService.user && res && res.userInfo) {
           this._userService.user = {
             username: res.userInfo.USERNAME,
             pictureUrl: res.userInfo.PICTUREURL

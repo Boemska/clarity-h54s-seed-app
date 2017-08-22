@@ -26,7 +26,7 @@ describe('UserNavDropdownComponent', () => {
         RouterTestingModule
       ],
       declarations: [UserNavDropdownComponent],
-      providers: [AdapterService, UserService,]
+      providers: [AdapterService, UserService]
     })
       .compileComponents();
   }));
@@ -85,10 +85,10 @@ describe('UserNavDropdownComponent', () => {
     });
 
     // spies will just return some empty objects in arrays
-    spyOn(adapterLogs.get, 'getDebugData').and.callFake(function() {
+    spyOn(adapterLogs.get, 'getDebugData').and.callFake(function () {
       return [{}, {}];
     });
-    spyOn(adapterLogs.get, 'getFailedRequests').and.callFake(function() {
+    spyOn(adapterLogs.get, 'getFailedRequests').and.callFake(function () {
       return [{}, {}, {}];
     });
 

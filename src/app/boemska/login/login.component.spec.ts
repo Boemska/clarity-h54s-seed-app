@@ -55,7 +55,7 @@ describe('LoginComponent', () => {
         callback(200);
       });
 
-      var promise = adapterService.call('p1', null);
+      const promise = adapterService.call('p1', null);
       expect(component.isActive).toBe(true);
 
       await adapterService.login('user', 'pass');
