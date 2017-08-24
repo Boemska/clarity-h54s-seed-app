@@ -1,9 +1,7 @@
-:host /deep/ {
-  clr-stack-block {
-    .data {
-      .stack-block-label {
-        display: none;
-      }
+/deep/ clr-stack-block {
+  .data {
+    .stack-block-label {
+      display: none;
     }
   }
 }

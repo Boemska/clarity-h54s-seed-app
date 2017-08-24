@@ -1,4 +1,4 @@
-<h3 class="center-text" *ngIf="logs.length === 0">Debug logs list is empty</h3>
+<h3 class="text-center" *ngIf="logs.length === 0">Debug logs list is empty</h3>
 <clr-stack-view *ngIf="logs.length > 0">
   <clr-stack-block *ngFor="let log of logs">
     <clr-stack-label>{{log.sasProgram}}</clr-stack-label>
