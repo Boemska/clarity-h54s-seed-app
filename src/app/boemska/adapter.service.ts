@@ -6,7 +6,7 @@ import * as h54s from 'h54s';
 import { Service } from './service.interface';
 import { UserService } from './user.service';
 
-import { AdapterSettings } from './settings';
+import { AdapterSettings } from './h54s.config';
 
 @Injectable()
 export class AdapterService {
