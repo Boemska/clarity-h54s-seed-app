@@ -65,9 +65,9 @@ describe('UserNavDropdownComponent', () => {
     let headerButtonSpan = headerButtonEl.nativeElement.querySelector('span:first-child');
     spyOn(adapterService._adapter, 'call').and.callFake(function (program, tables, callback) {
       callback(null, {
-        userInfo: {
+        userInfo: [{
           USERNAME: username,
-        }
+        }]
       });
     });
 

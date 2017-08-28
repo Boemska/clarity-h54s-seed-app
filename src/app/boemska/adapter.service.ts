@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import * as h54s from 'h54s';
+import * as SasData from 'h54s/src/sasData';
+import * as SasTable from 'h54s/src/tables';
 
 import { Service } from './service.interface';
 import { UserService } from './user.service';
@@ -37,7 +39,7 @@ export class AdapterService {
     });
   }
 
-  call(program, tables) {
+  call(program, tables): Promise<any> {
     const promise = new Promise((resolve, reject) => {
       this._adapter.call(program, tables, (err, res) => {
         if (err) {
@@ -48,10 +50,10 @@ export class AdapterService {
           }
         }
 
-        if (!this._userService.user && res && res.userInfo) {
+        if (!this._userService.user && res && res.userInfo && res.userInfo.length > 0) {
           this._userService.user = {
-            username: res.userInfo.USERNAME,
-            pictureUrl: res.userInfo.PICTUREURL
+            username: res.userInfo[0].USERNAME,
+            pictureUrl: res.userInfo[0].PICTUREURL
           };
         } else if (!this._userService.user && res && res.requestingPerson) {
           this._userService.user = {
@@ -91,5 +93,13 @@ export class AdapterService {
 
   set debugMode(debugMode) {
     this._debugMode = this._adapter.debug = debugMode;
+  }
+
+  createTable(rows, name) {
+    return new SasTable(rows, name);
+  }
+
+  createData(rows, name) {
+    return new SasData(rows, name);
   }
 }
