@@ -24,7 +24,7 @@ export class AdapterService {
     this.debugMode = true;
   }
 
-  login(user, pass): Promise<number> {
+  public login(user, pass): Promise<number> {
     return new Promise((resolve, reject) => {
       try {
         this._adapter.login(user, pass, status => {
@@ -39,7 +39,7 @@ export class AdapterService {
     });
   }
 
-  call(program, tables): Promise<any> {
+  public call(program, tables): Promise<any> {
     const promise = new Promise((resolve, reject) => {
       this._adapter.call(program, tables, (err, res) => {
         if (err) {
@@ -99,19 +99,19 @@ export class AdapterService {
     });
   }
 
-  get debugMode() {
+  public get debugMode() {
     return this._debugMode;
   }
 
-  set debugMode(debugMode) {
+  public set debugMode(debugMode) {
     this._debugMode = this._adapter.debug = debugMode;
   }
 
-  createTable(rows, name) {
+  public createTable(rows, name) {
     return new SasTable(rows, name);
   }
 
-  createData(rows, name) {
+  public createData(rows, name) {
     return new SasData(rows, name);
   }
 }

@@ -10,12 +10,12 @@ export class UserService {
 
   constructor() { }
 
-  set user(user) {
+  public set user(user) {
     this._user = user;
     this.userChange.next(user);
   }
 
-  get user() {
+  public get user() {
     return this._user;
   }
 

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this._subscription.unsubscribe();
   }
 
-  submit() {
+  public submit() {
     if (this.loading) {
       return;
     }
