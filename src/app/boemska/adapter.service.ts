@@ -87,6 +87,18 @@ export class AdapterService {
     return promise;
   }
 
+  public logout(): Promise<null | Error> {
+    return new Promise((resolve, reject) => {
+      this._adapter.logout(errStatus => {
+        if(errStatus !== undefined) {
+          reject(new Error(`Logout failed with status code ${status}`));
+        } else {
+          resolve();
+        }
+      });
+    });
+  }
+
   get debugMode() {
     return this._debugMode;
   }
