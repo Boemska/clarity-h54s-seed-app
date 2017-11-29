@@ -8,6 +8,7 @@
 @import '../../../../node_modules/clarity-ui/src/utils/variables.clarity';
 
 .boemska-nav-dropdown {
+  margin-right: 24px; // left padding for branding is also 24px
   line-height: $clr-header-height;
   height: $clr-header-height;
 

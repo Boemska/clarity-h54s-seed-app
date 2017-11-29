@@ -3,7 +3,6 @@ import { Subject } from 'rxjs/Subject';
 
 import * as h54s from 'h54s';
 import * as SasData from 'h54s/src/sasData';
-import * as SasTable from 'h54s/src/tables';
 
 import { Service } from './service.interface';
 import { UserService } from './user.service';
@@ -103,15 +102,11 @@ export class AdapterService {
     return this._debugMode;
   }
 
-  public set debugMode(debugMode) {
+  public set debugMode(debugMode: boolean) {
     this._debugMode = this._adapter.debug = debugMode;
   }
 
-  public createTable(rows, name) {
-    return new SasTable(rows, name);
-  }
-
-  public createData(rows, name) {
+  public createData(rows: Array<any>, name: string): SasData {
     return new SasData(rows, name);
   }
 }
