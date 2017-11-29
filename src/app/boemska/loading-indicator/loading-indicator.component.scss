@@ -21,6 +21,8 @@
 
     p {
       margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
 
       &:first-child {
         margin-top: 0;
@@ -30,6 +32,8 @@
       }
 
       span {
+        margin-left: 10px;
+
         &.running {
           color: $clr-yellow;
         }
