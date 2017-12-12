@@ -1,11 +1,8 @@
-// it must be a better way to read clarity variables...
-@import '../../../../node_modules/clarity-ui/src/utils/helpers.clarity';
-
-@import '../../../../node_modules/clarity-ui/src/color/utils/colors.clarity';
-@import '../../../../node_modules/clarity-ui/src/color/utils/contrast-cache.clarity';
-@import '../../../../node_modules/clarity-ui/src/color/utils/helpers.clarity';
-
-@import '../../../../node_modules/clarity-ui/src/utils/variables.clarity';
+// there are no clear instructions how to use Clarity ui variables
+$clr-header-height: 2.5rem;
+$clr-near-white: #fafafa;
+$clr-dark-gray: #565656;
+$clr-light-gray: #eee;
 
 .boemska-nav-dropdown {
   margin-right: 24px; // left padding for branding is also 24px

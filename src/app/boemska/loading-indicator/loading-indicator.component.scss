@@ -1,10 +1,9 @@
-@import '../../../../node_modules/clarity-ui/src/utils/helpers.clarity';
-
-@import '../../../../node_modules/clarity-ui/src/color/utils/colors.clarity';
-@import '../../../../node_modules/clarity-ui/src/color/utils/contrast-cache.clarity';
-@import '../../../../node_modules/clarity-ui/src/color/utils/helpers.clarity';
-
-@import '../../../../node_modules/clarity-ui/src/utils/variables.clarity';
+// there are no clear instructions how to use Clarity ui variables
+$clr-header-height: 2.5rem;
+$clr-dark-gray: #565656;
+$clr-red: #c92100;
+$yellow: rgb(233, 191, 4);
+$clr-green: #60b515;
 
 .loading-indicator {
   line-height: $clr-header-height;
@@ -35,7 +34,7 @@
         margin-left: 10px;
 
         &.running {
-          color: $clr-yellow;
+          color: $yellow;
         }
         &.success {
           color: $clr-green;
