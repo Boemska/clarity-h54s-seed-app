@@ -49,15 +49,16 @@ export class AdapterService {
           }
         }
 
-        if (!this._userService.user && res && res.userInfo && res.userInfo.length > 0) {
-          this._userService.user = {
+        let user = this._userService.user.getValue();
+        if (!user && res && res.userInfo && res.userInfo.length > 0) {
+          this._userService.user.next({
             username: res.userInfo[0].USERNAME,
             pictureUrl: res.userInfo[0].PICTUREURL
-          };
-        } else if (!this._userService.user && res && res.requestingPerson) {
-          this._userService.user = {
+          });
+        } else if (!user && res && res.requestingPerson) {
+          this._userService.user.next({
             username: res.requestingPerson
-          };
+          });
         }
 
         resolve(res);
@@ -93,6 +94,7 @@ export class AdapterService {
           reject(new Error(`Logout failed with status code ${status}`));
         } else {
           resolve();
+          this._userService.user.next(null);
         }
       });
     });

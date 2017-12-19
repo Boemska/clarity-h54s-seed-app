@@ -38,8 +38,8 @@ export class UserNavDropdownComponent implements OnInit, OnDestroy {
       this.requestsCount = this.debugLogs.length + this.failedReqs.length;
     });
 
-    this._userSub = this._userService.userChange.subscribe(user => {
-      this.userName = user.username;
+    this._userSub = this._userService.user.subscribe(user => {
+      this.userName = user ? user.username : 'Not logged in';
     });
   }
 
