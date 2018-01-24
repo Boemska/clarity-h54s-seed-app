@@ -23,7 +23,7 @@ export class AlertsComponent implements OnInit {
 
       this.hasOpenAlert = true;
 
-      if(alert.err) {
+      if (alert.err) {
         console.error(alert.err);
       }
     });

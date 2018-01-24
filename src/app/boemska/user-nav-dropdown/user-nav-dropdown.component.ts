@@ -62,7 +62,7 @@ export class UserNavDropdownComponent implements OnInit, OnDestroy {
     try {
       this._adapterService.logout();
       this._adapterService.shouldLogin.next(true);
-    } catch(err) {
+    } catch (err) {
       // TODO: handle error - show something to user
       console.error(err);
     }
