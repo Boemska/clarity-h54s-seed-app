@@ -1,9 +1,9 @@
 <clr-main-container>
-  <clr-header style="background: rgb(0,74,148);">
+  <clr-header>
     <div class="branding">
       <a href="#" [routerLink]="['/']" class="nav-link">
         <span class="clr-icon header-logo"></span>
-        <span class="title">Allianz Model Manager</span>
+        <span class="title">H54S Angular 2 Seed</span>
       </a>
     </div>
     <div class="header-actions">
@@ -19,15 +19,12 @@
   <boemska-alerts></boemska-alerts>
 
   <nav class="sub-nav" [clr-nav-level]="1">
-    <ul class="nav" style="justify-content: center;">
+    <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="#" [routerLink]="['/data']" routerLinkActive="active">Data Loading</a>
+        <a class="nav-link" href="#" [routerLink]="['/home']" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" [routerLink]="['/execution']" routerLinkActive="active">Model Execution</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" [routerLink]="['/history']" routerLinkActive="active">History</a>
+        <a class="nav-link" href="#" [routerLink]="['/about']" routerLinkActive="active">About</a>
       </li>
     </ul>
   </nav>

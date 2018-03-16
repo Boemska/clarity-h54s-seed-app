@@ -11,17 +11,13 @@ import { AboutComponent } from "./about/about.component";
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { BoemskaModule } from './boemska/boemska.module';
-import { ExecutionComponent } from './execution/execution.component';
-import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     HomeComponent,
-    NotFoundComponent,
-    ExecutionComponent,
-    HistoryComponent
+    NotFoundComponent
   ],
   imports: [
     BrowserAnimationsModule,

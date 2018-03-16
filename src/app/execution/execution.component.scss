@@ -1,6 +1,0 @@
-.toggle-switch input[type=checkbox]:checked+label:before {
-    border-color: #2a7bbb;
-    background-color: #2a7bbb!important;
-    transition: .15s ease-in;
-    transition-property: border-color,background-color;
-}
