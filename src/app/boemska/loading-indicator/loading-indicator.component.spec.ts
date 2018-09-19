@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
-import { ClarityModule } from 'clarity-angular';
+import { ClarityModule } from '@clr/angular';
 
 import { LoadingIndicatorComponent } from './loading-indicator.component';
 import { AdapterService } from '../adapter.service';
@@ -13,7 +13,7 @@ describe('LoadingIndicatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ClarityModule.forChild()],
+      imports: [ClarityModule],
       declarations: [LoadingIndicatorComponent],
       providers: [AdapterService, UserService]
     })

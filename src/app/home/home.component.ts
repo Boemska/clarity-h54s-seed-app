@@ -16,7 +16,7 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // call a simple SAS service
-    this.adapterService.call('startupService', null).then(res => {
+    this.adapterService.call('Public/getAllMembers', null).then(res => {
       console.log(res);
     }).catch(err => {
       console.error(err);

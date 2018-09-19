@@ -1,7 +1,7 @@
 import { NgModule, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ClarityModule } from 'clarity-angular';
+import { ClarityModule } from '@clr/angular';
 import { RouterModule } from '@angular/router';
 
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
@@ -20,7 +20,7 @@ import { AlertsComponent } from './alerts/alerts.component';
   imports: [
     CommonModule,
     FormsModule,
-    ClarityModule.forRoot(),
+    ClarityModule,
     RouterModule
   ],
   declarations: [

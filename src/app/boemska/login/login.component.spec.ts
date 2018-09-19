@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { ClarityModule } from 'clarity-angular';
+import { ClarityModule } from '@clr/angular';
 
 import { LoginComponent } from './login.component';
 import { AdapterService } from '../adapter.service';
@@ -23,7 +23,7 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        ClarityModule.forChild()
+        ClarityModule
       ],
       declarations: [LoginComponent],
       providers: [AdapterService, UserService]

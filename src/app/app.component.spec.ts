@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ClarityModule } from "clarity-angular";
+import { ClarityModule } from '@clr/angular';
 import { ROUTING } from "./app.routing";
 import { APP_BASE_HREF } from "@angular/common";
 
@@ -25,7 +25,7 @@ describe('AppComponent', () => {
         NotFoundComponent
       ],
       imports: [
-        ClarityModule.forRoot(),
+        ClarityModule,
         ROUTING,
         BoemskaModule
       ],
