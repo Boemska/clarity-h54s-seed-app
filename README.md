@@ -37,23 +37,21 @@ ng serve
 
 ### h54s settings 
 
-First what we should do after cloning repository and `npm install` (installing dependecies) is h54s setup.
-Go to app/boemska/h54s.config.ts.
+First thing to do after cloning repository and `npm install` (installing dependecies) is h54s setup.
+Go to `app/boemska/h54s.config.ts`.
 
 ```
-// h54s settings - for more information go to https://github.com/Boemska/h54s
 export const AdapterSettings = {
   metadataRoot: '/metadata/root/path',
   hostUrl: 'http://example.com/'
 }
 ```
-
-
+ For more information go to https://github.com/Boemska/h54s
 
 ## Using h54s inside angular-clarity seed app
 For documentation on the H54S library go to the [H54S Github page](https://github.com/Boemska/h54s)
 
-This is example how to create a service call with program path 'users/getUser' (sample path)
+This is an example of how to create a service call with the following  (sample) program path:
 ``` 
 try {
   const res = await this._adapterService.call('users/getUser', data);
@@ -64,7 +62,7 @@ try {
 }
 
 ```
-`this._adapterService` is instance for adapter service component (src/app/boemska/adapter.service.ts) which is typescript file where h54s.js files are included. Is instanced in component contructor 
+`this._adapterService` is an instance of `src/app/boemska/adapter.service.ts` which is where the h54s.js files are included. It is instanced in the component constructor: 
 ```
 constructor(private _adapterService: AdapterService) { }
 ```
@@ -72,9 +70,9 @@ previously `AdapterService` is imported:
 ```
 import { AdapterService } from '../boemska/adapter.service';
 ```
-`this._adapterService` have two methods we use for service calls and for proper data format creation we have to send(when is needed). In upper example we don't send any data. 
+`this._adapterService` has two primary methods for connecting to SAS - one for creating data (in the right format), and another for calling the service. The data method is optional, and was not used in the previous example (above).
 
-Let's see how to create data using `this._adapterService.createTable()` method and send it using `this._adapterService.call()` method.
+To create data use `this._adapterService.createTable()` method and send it using `this._adapterService.call()` method. Example:
 
 ```
 const data = this._adapterService.createTable([
@@ -95,7 +93,7 @@ try {
   console.log(err);
 }
 ```
-In this case we created this code (service call) using Boemska's AppFactory, which have JS code generation feature for vanila JS and angular both.
+In this case code is created (service call) using Boemska's AppFactory, which have JS code generation feature for vanila JS and angular both.
 
 ### Using Angular-CLI
 ```bash
@@ -127,40 +125,12 @@ ng build
 ng build --prod
 ```
 
-## Documentation
+### Documentation
 
 For documentation on the H54S library go to the [H54S Github page](https://github.com/Boemska/h54s)
 
-For documentation on the Clarity Design System, including a list of components and example usage, see [our website](https://vmware.github.io/clarity).
+For documentation on the Clarity Design System, including a list of components and example usage, see [their web site](https://vmware.github.io/clarity).
 
-
-<!-- #### Directory structure -->
-<!-- ```
-.
-├── README.md
-
-├── karma.conf.js              <- configuration of the test runner
-├── package.json               <- dependencies of the project
-├── protractor.config.js       <- e2e tests configuration
-├── src/                       <- source code of the application
-│   ├── app/
-│   │   └── component/
-│   │       └── <component>.component.html
-│   │       └── <component>.component.scss
-│   │       └── <component>.component.spec.ts
-│   │       └── <component>.component.ts
-│   │   └── app.component.html
-│   │   └── app.component.scss
-│   │   └── app.component.ts
-│   │   └── app.e2e-spec.js    <- sample e2e spec file
-│   │   └── app.module.ts
-│   │   └── app.routing.ts
-│   │   └── main.ts            <- boostrap file for the angular app
-│   └── index.html
-├── angular.json           <- configuration of the angular-cli
-├── tsconfig.json              <- configuration of the typescript project
-└── tslint.json                <- sample configuration file for tslint
-``` -->
 
 #### Project structure
 * `package.json` is used by NPM to describe package, run scripts and manage dependencies .

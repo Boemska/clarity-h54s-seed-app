@@ -108,7 +108,7 @@ export class AdapterService {
     this._debugMode = this._adapter.debug = debugMode;
   }
 
-  public createData(rows: Array<any>, name: string): SasData {
+  public createTable(rows: Array<any>, name: string): SasData {
     return new SasData(rows, name);
   }
 }

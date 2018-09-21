@@ -14,12 +14,15 @@ import { AdapterService } from '../boemska/adapter.service';
 export class HomeComponent implements AfterViewInit {
   constructor(private _adapterService: AdapterService) { }
 
-  ngAfterViewInit(): void {
+  async ngAfterViewInit() {
     // call a simple SAS service
-    this._adapterService.call('users/getUser', null).then(res => {
+    try {
+      const res = await this._adapterService.call('sample/sampleCall', null);
       console.log(res);
-    }).catch(err => {
-      console.error(err);
-    });
+    } catch(err) {
+      // TODO: handle error
+      console.log(err);
+    }
+    
   }
 }
