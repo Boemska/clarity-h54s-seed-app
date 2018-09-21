@@ -24,8 +24,6 @@ This seed version provides the following out of the box:
 
 ```bash
 git clone git@builds.boemskats.com:nik/clarity-h54s-seed-app.git
-# git clone https://github.com/vmware/clarity-seed.git
-
 cd clarity-h54s-seed-app
 
 # install the project's dependencies
