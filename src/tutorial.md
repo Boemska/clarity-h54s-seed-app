@@ -75,7 +75,7 @@ try {
 ```
 4. Now show `attrProps` property in home component view using [Clarity Data Grid component](https://vmware.github.io/clarity/documentation/v0.13/datagrid/structure). View should look like this:
 
-```
+```html
 <clr-datagrid>
   <clr-dg-column>NAME</clr-dg-column>
   <clr-dg-column>TYPE</clr-dg-column>
