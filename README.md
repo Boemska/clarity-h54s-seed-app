@@ -17,6 +17,7 @@ This seed version provides the following out of the box:
 - End-to-end test setup with Protractor
 - SASS processor
 - TSLint
+- Semantic versioning (enabling automated release notes to be generated) - see [here](https://github.com/conventional-changelog/standard-version) for guidance on how to write commit messages that conform to the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard.
 - And other goodies that come with [Angular-CLI](https://github.com/angular/angular-cli#generating-and-serving-an-angular2-project-via-a-development-server) (v1.0.0-beta.20-4)
 
 #### Installation
