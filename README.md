@@ -20,6 +20,8 @@ This seed version provides the following out of the box:
 - Semantic versioning (enabling automated release notes to be generated) - see [here](https://github.com/conventional-changelog/standard-version) for guidance on how to write commit messages that conform to the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard.
 - And other goodies that come with [Angular-CLI](https://github.com/angular/angular-cli#generating-and-serving-an-angular2-project-via-a-development-server) (v1.0.0-beta.20-4)
 
+
+
 #### Installation
 *Prerequisite*: Please install Angular-CLI by following [these instructions](https://github.com/angular/angular-cli#installation).
 
@@ -98,3 +100,31 @@ For documentation on the Clarity Design System, including a list of components a
 ├── tsconfig.json              <- configuration of the typescript project
 └── tslint.json                <- sample configuration file for tslint
 ```
+
+#### GIT Commit Guidelines
+
+Per angular spec: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits
+
+Each commit message should consist of a header, a body and an optional footer. The header has a special format that includes a type, a scope and a subject:
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+The type should be one of the following:
+
+feat: A new feature
+fix: A bug fix
+docs: Documentation only changes
+style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+refactor: A code change that neither fixes a bug nor adds a feature
+perf: A code change that improves performance
+test: Adding missing or correcting existing tests
+chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+The footer should contain any information about Breaking Changes and is also the place to reference issues that the commit closes.
+
+Breaking Changes should start with the word BREAKING CHANGE: with a space or two newlines. The rest of the commit message is then used for this.
