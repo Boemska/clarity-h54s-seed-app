@@ -135,4 +135,4 @@ Example:
 
 This format enables automatic release note generation!
 
-closes #3"
+closes #3"`
