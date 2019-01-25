@@ -128,3 +128,11 @@ chore: Changes to the build process or auxiliary tools and libraries such as doc
 The footer should contain any information about Breaking Changes and is also the place to reference issues that the commit closes.
 
 Breaking Changes should start with the word BREAKING CHANGE: with a space or two newlines. The rest of the commit message is then used for this.
+
+Example:
+
+`git commit -m "docs(readme): example commit
+
+This format enables automatic release note generation!
+
+closes #3"
