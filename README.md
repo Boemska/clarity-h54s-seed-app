@@ -131,8 +131,10 @@ Breaking Changes should start with the word BREAKING CHANGE: with a space or two
 
 Example:
 
-`git commit -m "docs(readme): example commit
+```
+git commit -m "docs(readme): example commit
 
 This format enables automatic release note generation!
 
-closes #3"`
+closes #3"
+```
