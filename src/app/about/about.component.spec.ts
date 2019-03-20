@@ -4,7 +4,8 @@
  * The full license information can be found in LICENSE in the root directory of this project.
  */
 import { async, TestBed, ComponentFixture } from "@angular/core/testing";
-import { ClarityModule } from 'clarity-angular';
+import { ClarityModule } from '@clr/angular';
+// import { ClarityModule } from '@clr/angular';
 import { AboutComponent } from './about.component';
 
 
@@ -21,7 +22,7 @@ describe('AboutComponent', () => {
         AboutComponent
       ],
       imports: [
-        ClarityModule.forRoot()
+        ClarityModule
       ]
     });
 
