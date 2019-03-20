@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { ClarityModule } from 'clarity-angular';
+import { ClarityModule } from '@clr/angular';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { UserNavDropdownComponent } from './user-nav-dropdown.component';
@@ -22,7 +22,7 @@ describe('UserNavDropdownComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        ClarityModule.forChild(),
+        ClarityModule,
         RouterTestingModule
       ],
       declarations: [UserNavDropdownComponent],

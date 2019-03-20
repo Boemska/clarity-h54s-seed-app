@@ -2,7 +2,8 @@ import {ClaritySeedAppHome} from './app.po';
 
 fdescribe('clarity-seed app', function () {
 
-  let expectedMsg: string = 'This is a Clarity seed application. This is the default page that loads for the application.';
+  // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/15215
+  let expectedMsg: any = 'This is a Clarity seed application. This is the default page that loads for the application.';
 
   let page: ClaritySeedAppHome;
 
