@@ -1,4 +1,4 @@
-<img src="src/images/clarity_logo.png" style="height:80px;"/><img src="src/images/boemska_logo.png" style="height:80px;"/><img src="src/images/angular_logo.png" style="height:80px;"/>
+<img src="src/images/clarity_logo.png" height="80"/><img src="src/images/boemska_logo.png" height="80"/><img src="src/images/angular_logo.png" height="80"/>
 
 
 Boemska Seed App
