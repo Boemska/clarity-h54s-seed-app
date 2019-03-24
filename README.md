@@ -1,32 +1,29 @@
-![Clarity](logo.png)
+<img src="src/images/clarity_logo.png" style="height:80px;"/><img src="src/images/boemska_logo.png" style="height:80px;"/><img src="src/images/angular_logo.png" style="height:80px;"/>
 
-H54S Clarity Seed App
+
+Boemska Seed App
 ============
-This is a seed project for H54S Angular 2 applications using Clarity UI(https://github.com/vmware/clarity). For more information on the Clarity Design System, visit the [Clarity website](https://vmware.github.io/clarity/).
+Enterprise Apps have never looked so good, or been built so fast!  The Boemska Seed App accelerates app development by standardising on UX design ([Clarity](https://github.com/vmware/clarity)), JavaScript framework ([Angular](https://angular.io/)) and SAS connectivity tools ([h54s](https://github.com/Boemska/h54s)).
 
-Getting started
-----------------------------------
-
-#### Angular-CLI version
 
 This seed version provides the following out of the box:
 
-- Angular 2 application with [clarity-icons](https://www.npmjs.com/package/@clr/icons), [clarity-ui](https://www.npmjs.com/package/@clr/ui) and [clarity-angular](https://www.npmjs.com/package/@clr/angular) included
+- Angular 7 application with [clarity-icons](https://www.npmjs.com/package/@clr/icons), [clarity-ui](https://www.npmjs.com/package/@clr/ui) and [clarity-angular](https://www.npmjs.com/package/@clr/angular) included
 - Development and production builds
 - Unit test setup with Jasmine and Karma
 - End-to-end test setup with Protractor
 - SASS processor
 - TSLint
 - Semantic versioning (enabling automated release notes to be generated) - see [here](https://github.com/conventional-changelog/standard-version) for guidance on how to write commit messages that conform to the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) standard.
-- And other goodies that come with [Angular-CLI](https://github.com/angular/angular-cli#generating-and-serving-an-angular2-project-via-a-development-server) (v1.0.0-beta.20-4)
+- And other goodies that come with [Angular-CLI](https://github.com/angular/angular-cli#generating-and-serving-an-angular2-project-via-a-development-server).
 
-
-
+Getting started
+----------------------------------
 #### Installation
-*Prerequisite*: Please install Angular-CLI by following [these instructions](https://github.com/angular/angular-cli#installation).
+*Prerequisite*: Please install [Angular-CLI]by following [these instructions](https://github.com/angular/angular-cli#installation).
 
 ```bash
-git clone git@builds.boemskats.com:nik/clarity-h54s-seed-app.git
+git clone https://github.com/Boemska/clarity-h54s-seed-app
 cd clarity-h54s-seed-app
 
 # install the project's dependencies
@@ -36,7 +33,7 @@ npm install
 ng serve
 ```
 
-### h54s settings 
+### h54s settings
 
 First thing to do after cloning repository and `npm install` (installing dependecies) is h54s setup.
 Go to `app/boemska/h54s.config.ts`.
@@ -53,7 +50,7 @@ export const AdapterSettings = {
 For documentation on the H54S library go to the [H54S Github page](https://github.com/Boemska/h54s)
 
 This is an example of how to create a service call with the following  (sample) program path:
-``` 
+```
 try {
   const res = await this._adapterService.call('users/getUser', data);
   console.log(res);
@@ -63,11 +60,11 @@ try {
 }
 
 ```
-`this._adapterService` is an instance of `src/app/boemska/adapter.service.ts` which is where the h54s.js files are included. It is instanced in the component constructor: 
+`this._adapterService` is an instance of `src/app/boemska/adapter.service.ts` which is where the h54s.js files are included. It is instanced in the component constructor:
 ```
 constructor(private _adapterService: AdapterService) { }
 ```
-previously `AdapterService` is imported: 
+previously `AdapterService` is imported:
 ```
 import { AdapterService } from '../boemska/adapter.service';
 ```
@@ -156,8 +153,6 @@ For documentation on the Clarity Design System, including a list of components a
 │   │   └── app.routing.ts
 │   │   └── main.ts            <- boostrap file for the angular app
 │   └── index.html
-├── angular-cli.json           <- configuration of the angular-cli
-├── tsconfig.json              <- configuration of the typescript project
 └── tslint.json                <- sample configuration file for tslint
 ```
 
