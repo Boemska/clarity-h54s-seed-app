@@ -24,6 +24,7 @@ Getting started
 
 ```bash
 git clone https://github.com/Boemska/clarity-h54s-seed-app
+
 cd clarity-h54s-seed-app
 
 # install the project's dependencies
