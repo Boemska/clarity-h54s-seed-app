@@ -1,11 +1,14 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
+      "paths": { "*": ["types/*"] },
         "rootDir": "../",
         "baseUrl": "",
         "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "strict": true,
         "lib": [
             "es6",
             "dom"
@@ -16,20 +19,13 @@
         "outDir": "dist/out-tsc",
         "sourceMap": true,
         "target": "es5",
-        "noImplicitAny": false,
-        "noImplicitThis": false,
-        "alwaysStrict": true,
-        "strictBindCallApply": true,
-        "strictNullChecks": false,
-        "strictFunctionTypes": true,
-        "strictPropertyInitialization": false,
         "typeRoots": [
             "node_modules/@types"
         ],
         "types": [
-          "jasmine",
-          "core-js",
-          "node"
+            "jasmine",
+            "core-js",
+            "node"
         ]
     },
     "exclude": [

@@ -5,7 +5,7 @@ import { User } from './user.interface';
 
 @Injectable()
 export class UserService {
-  public user: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  public user: BehaviorSubject<User> = new BehaviorSubject<User>(null!);
 
   constructor() { }
 }

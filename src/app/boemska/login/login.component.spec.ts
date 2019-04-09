@@ -8,7 +8,7 @@ import { LoginComponent } from './login.component';
 import { AdapterService } from '../adapter.service';
 import { UserService } from '../user.service';
 
-import * as h54sError from 'h54s/src/error';
+import  H54s from 'h54s';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -47,11 +47,11 @@ describe('LoginComponent', () => {
   });
 
   it('test login component opening', done => {
-    inject([AdapterService], async function(adapterService) {
-      spyOn(adapterService._adapter, 'call').and.callFake(function(program, tables, callback) {
-        callback(new h54sError('notLoggedinError', 'Fake login error'));
+    inject([AdapterService], async function(adapterService: any) {
+      spyOn(adapterService._adapter, 'call').and.callFake(function(program: any, tables: any, callback: any) {
+        callback(H54s.Error('notLoggedinError', 'Fake login error'));
       });
-      spyOn(adapterService._adapter, 'login').and.callFake(function (user, pass, callback) {
+      spyOn(adapterService._adapter, 'login').and.callFake(function (user: any, pass: any, callback: any) {
         callback(200);
       });
 
@@ -65,8 +65,8 @@ describe('LoginComponent', () => {
     })();
   });
 
-  it('Test login', inject([AdapterService], (adapterService) => {
-    spyOn(adapterService._adapter, 'login').and.callFake(function (user, pass, callback) {
+  it('Test login', inject([AdapterService], (adapterService: any) => {
+    spyOn(adapterService._adapter, 'login').and.callFake(function (user: any, pass: any, callback: any) {
       callback(200);
     });
 

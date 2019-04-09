@@ -4,8 +4,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { AdapterService } from '../adapter.service';
 
 interface User {
-  user?: string
-  pass?: string
+  user?: any
+  pass?: any
 }
 
 @Component({
@@ -14,17 +14,19 @@ interface User {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  private _subscription: Subscription;
-  public isActive: boolean;
+  private _subscription: Subscription = new Subscription;
+  public isActive: boolean | undefined;
   public loading: boolean = false;
   public alertClosed: boolean = true;
-  public errorMsg: string;
+  public errorMsg: string | undefined;
   public data: User = {
     user: null,
     pass: null
   };
 
-  constructor(private adapter: AdapterService) { }
+  constructor(
+    private adapter: AdapterService
+  ) { }
 
   ngOnInit() {
     this._subscription = this.adapter.shouldLogin.subscribe(shouldLogin => {
@@ -56,7 +58,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.alertClosed = false;
           break;
         case 200:
-          this.errorMsg = null;
+          this.errorMsg = '';
           break;
         default:
           this.errorMsg = 'Error with status code ' + status;

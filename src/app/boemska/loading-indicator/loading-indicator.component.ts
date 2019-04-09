@@ -13,9 +13,11 @@ import { Service } from '../service.interface';
 export class LoadingIndicatorComponent implements OnInit, OnDestroy {
   public loading: boolean = false;
   public requests: Service[] = [];
-  private _loadingSub: Subscription;
+  private _loadingSub: Subscription = new Subscription;
 
-  constructor(private adapterService: AdapterService) { }
+  constructor(
+    private adapterService: AdapterService
+  ) { }
 
   ngOnInit(): void {
     this._loadingSub = this.adapterService.requestsChanged.subscribe(() => {
