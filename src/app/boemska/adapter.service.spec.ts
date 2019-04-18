@@ -3,7 +3,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { AdapterService } from './adapter.service';
 import { UserService } from './user.service';
 
-import * as h54sError from 'h54s/src/error';
+import H54s from 'h54s';
 
 describe('AdapterService', () => {
   beforeEach(() => {
@@ -20,16 +20,16 @@ describe('AdapterService', () => {
   }));
 
   it('test login event emit', done => {
-    inject([AdapterService], async (service) => {
-      spyOn(service._adapter, 'call').and.callFake(function (program, tables, callback) {
-        callback(new h54sError('notLoggedinError', 'Fake login error'));
+    inject([AdapterService], async (service: any) => {
+      spyOn(service._adapter, 'call').and.callFake(function (program: any, tables: any, callback: any) {
+        callback(H54s.Error('notLoggedinError', 'Fake login error'));
       });
-      spyOn(service._adapter, 'login').and.callFake(function (user, pass, callback) {
+      spyOn(service._adapter, 'login').and.callFake(function (user: any, pass: any, callback: any) {
         callback(200);
       });
 
-      let shouldLogin;
-      service.shouldLogin.subscribe(val => {
+      let shouldLogin: any;
+      service.shouldLogin.subscribe((val: any) => {
         shouldLogin = val;
       });
 

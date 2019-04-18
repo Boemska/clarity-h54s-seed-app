@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-import * as h54s from 'h54s';
-import * as SasData from 'h54s/src/sasData';
+import H54s from 'h54s';
 
 import { Service } from './service.interface';
 import { UserService } from './user.service';
@@ -15,18 +14,20 @@ export class AdapterService {
   public requestsChanged: Subject<null> = new Subject<null>();
   public shouldLogin: Subject<boolean> = new Subject<boolean>();
   private _debugMode: boolean;
-  private _adapter: h54s;
+  private _adapter: H54s;
 
-  constructor(private _userService: UserService) {
-    this._adapter = new h54s(AdapterSettings);
+  constructor(
+    private _userService: UserService
+  ) {
+    this._adapter = new H54s(AdapterSettings);
     // setting it here to invoke setter method
-    this.debugMode = true;
+    this._debugMode = true;
   }
 
-  public login(user, pass): Promise<number> {
+  public login(user: any, pass: any): Promise<number> {
     return new Promise((resolve, reject) => {
       try {
-        this._adapter.login(user, pass, status => {
+        this._adapter.login(user, pass, (status: any) => {
           if (status === 200) {
             this.shouldLogin.next(false);
           }
@@ -38,9 +39,9 @@ export class AdapterService {
     });
   }
 
-  public call(program, tables): Promise<any> {
+  public call(program: any, tables: any): Promise<any> {
     const promise = new Promise((resolve, reject) => {
-      this._adapter.call(program, tables, (err, res) => {
+      this._adapter.call(program, tables, (err: any, res: any) => {
         if (err) {
           if (err.type === 'notLoggedinError') {
             return this.shouldLogin.next(true);
@@ -68,17 +69,17 @@ export class AdapterService {
     this.requests.set(promise, {
       program,
       running: true,
-      successful: null
+      successful: undefined
     });
     this.requestsChanged.next();
 
     promise.then(() => {
-      let request = this.requests.get(promise);
+      let request: any = this.requests.get(promise);
       request.running = false;
       request.successful = true;
       this.requestsChanged.next();
     }).catch(() => {
-      let request = this.requests.get(promise);
+      let request: any = this.requests.get(promise);
       request.running = false;
       request.successful = false;
       this.requestsChanged.next();
@@ -89,12 +90,12 @@ export class AdapterService {
 
   public logout(): Promise<null | Error> {
     return new Promise((resolve, reject) => {
-      this._adapter.logout(errStatus => {
+      this._adapter.logout((errStatus: any) => {
         if (errStatus !== undefined) {
           reject(new Error(`Logout failed with status code ${status}`));
         } else {
           resolve();
-          this._userService.user.next(null);
+          this._userService.user.next(null!);
         }
       });
     });
@@ -108,7 +109,7 @@ export class AdapterService {
     this._debugMode = this._adapter.debug = debugMode;
   }
 
-  public createTable(rows: Array<any>, name: string): SasData {
-    return new SasData(rows, name);
+  public createTable(rows: Array<any>, name: string) {
+    return H54s.SasData(rows, name);
   }
 }

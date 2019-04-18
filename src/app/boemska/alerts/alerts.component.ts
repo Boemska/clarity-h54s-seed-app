@@ -9,17 +9,20 @@ import { AlertsService } from './alerts.service';
   templateUrl: './alerts.component.html',
   styleUrls: ['./alerts.component.scss']
 })
+
 export class AlertsComponent implements OnInit {
   public alerts: Array<Alert> = [];
   public hasOpenAlert: boolean = false;
 
-  private _alertsSub: Subscription;
+  private _alertsSub: Subscription = new Subscription;
 
-  constructor(private _alertsService: AlertsService) { }
+  constructor(
+    private _alertsService: AlertsService
+    ) { }
 
   ngOnInit() {
     this._alertsSub = this._alertsService.alerts.subscribe((alert: Alert) => {
-      this.alerts.push(alert);
+    this.alerts.push(alert);
 
       this.hasOpenAlert = true;
 

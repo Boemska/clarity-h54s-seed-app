@@ -9,7 +9,7 @@ import { UserNavDropdownComponent } from './user-nav-dropdown.component';
 import { AdapterService } from '../adapter.service';
 import { UserService } from '../user.service';
 
-import * as adapterLogs from 'h54s/src/logs';
+import H54s from 'h54s';
 
 describe('UserNavDropdownComponent', () => {
   let component: UserNavDropdownComponent;
@@ -50,7 +50,7 @@ describe('UserNavDropdownComponent', () => {
     expect(component.debugMode).toBe(false);
   });
 
-  it('should update debug mode on adapter service', inject([AdapterService], adapterService => {
+  it('should update debug mode on adapter service', inject([AdapterService], (adapterService: any) => {
     expect(component.debugMode).toBe(true);
     expect(adapterService.debugMode).toBe(true);
     expect(adapterService._adapter.debug).toBe(true);
@@ -60,10 +60,10 @@ describe('UserNavDropdownComponent', () => {
     expect(adapterService._adapter.debug).toBe(false);
   }));
 
-  it('should set user name', inject([AdapterService], async adapterService => {
+  it('should set user name', inject([AdapterService], async (adapterService: any) => {
     let username = 'user name';
     let headerButtonSpan = headerButtonEl.nativeElement.querySelector('span:first-child');
-    spyOn(adapterService._adapter, 'call').and.callFake(function (program, tables, callback) {
+    spyOn(adapterService._adapter, 'call').and.callFake(function (program: any, tables: any, callback: any) {
       callback(null, {
         userInfo: [{
           USERNAME: username,
@@ -79,16 +79,17 @@ describe('UserNavDropdownComponent', () => {
     expect(headerButtonSpan.textContent).toBe('user name');
   }));
 
-  it('should have badge next to the user name with correct number', inject([AdapterService], async adapterService => {
-    spyOn(adapterService._adapter, 'call').and.callFake(function (program, tables, callback) {
+  it('should have badge next to the user name with correct number', inject([AdapterService], async (adapterService: any) => {
+
+    spyOn(adapterService._adapter, 'call').and.callFake(function (program: any, tables: any, callback: any) {
       callback(null, {});
     });
 
     // spies will just return some empty objects in arrays
-    spyOn(adapterLogs.get, 'getDebugData').and.callFake(function () {
+    spyOn(H54s.Logs.get, 'getDebugData').and.callFake(function () {
       return [{}, {}];
     });
-    spyOn(adapterLogs.get, 'getFailedRequests').and.callFake(function () {
+    spyOn(H54s.Logs.get, 'getFailedRequests').and.callFake(function () {
       return [{}, {}, {}];
     });
 

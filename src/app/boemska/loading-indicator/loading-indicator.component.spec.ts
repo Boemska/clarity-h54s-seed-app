@@ -17,7 +17,7 @@ describe('LoadingIndicatorComponent', () => {
       declarations: [LoadingIndicatorComponent],
       providers: [AdapterService, UserService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -37,8 +37,8 @@ describe('LoadingIndicatorComponent', () => {
   });
 
   it('should show/hide and hold the list of the requests', done => {
-    inject([AdapterService], (adapterService) => {
-      spyOn(adapterService._adapter, 'call').and.callFake(function(program, tables, callback) {
+    inject([AdapterService], (adapterService: any) => {
+      spyOn(adapterService._adapter, 'call').and.callFake(function (program: any, tables: any, callback: any) {
         setTimeout(callback, Math.round(Math.random() * 100));
       });
       const promise1 = adapterService.call('p1', null);

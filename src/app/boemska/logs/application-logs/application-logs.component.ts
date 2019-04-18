@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import * as adapterLogs from 'h54s/src/logs';
+import H54s from 'h54s';
 
 @Component({
   selector: 'boemska-application-logs',
@@ -8,12 +8,12 @@ import * as adapterLogs from 'h54s/src/logs';
   styleUrls: ['./application-logs.component.scss']
 })
 export class ApplicationLogsComponent implements OnInit {
-  public logs: Array<any>[];
+  public logs: Array<any> = [];
 
-  constructor() { }
+  constructor(  ) { }
 
   ngOnInit() {
-    this.logs = adapterLogs.get.getApplicationLogs();
+    this.logs = H54s.Logs.get.getApplicationLogs();
   }
 
 }
