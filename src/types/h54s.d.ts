@@ -3,10 +3,10 @@ declare class h54s {
   static get: any;
   static Error(type: any, message: any, status?: any): void;
   static Files(file: any, macroName: any): void;
-  static SasData(data: any, macroName: any, specs?: any): void;
   static Tables(table: any, macroName: any, parameterThreshold: any): void;
   static fromSasDateTime(sasDate: any): any;
   static toSasDateTime(jsDate: any): any;
+  static SasData: any;
   static version: string;
   constructor(config: any);
   maxXhrRetries: any;

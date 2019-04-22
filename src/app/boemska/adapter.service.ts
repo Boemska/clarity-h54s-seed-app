@@ -110,6 +110,6 @@ export class AdapterService {
   }
 
   public createTable(rows: Array<any>, name: string) {
-    return H54s.SasData(rows, name);
+    return new H54s.SasData(rows, name);
   }
 }
