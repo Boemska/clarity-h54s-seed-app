@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
-    "launch": "npm install && ng build --watch",
+    "launch": "npm install && ng build --source-map=false --watch",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --single-run",
     "watch": "ng test --single-run=false watch=true",
