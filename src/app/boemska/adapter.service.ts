@@ -21,7 +21,7 @@ export class AdapterService {
   ) {
     this._adapter = new H54s(AdapterSettings);
     // setting it here to invoke setter method
-    this._debugMode = true;
+    this._debugMode = false;
   }
 
   public login(user: any, pass: any): Promise<number> {
