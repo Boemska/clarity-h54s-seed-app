@@ -8,6 +8,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "esModuleInterop": true,
+        "importHelpers":true,
         "strict": true,
         "lib": [
             "es6",
