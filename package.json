@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
-    "launch": "npm install && ng build --source-map=false --watch",
+    "demo": "npm install && ng build --source-map=false --aot=true --optimization=true --watch",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --single-run",
     "watch": "ng test --single-run=false watch=true",
@@ -33,7 +33,6 @@
     "mutationobserver-shim": "^0.3.3",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.4.0",
-    "ts-helpers": "^1.1.2",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.29"
   },
@@ -57,8 +56,9 @@
     "karma-remap-istanbul": "^0.6.0",
     "protractor": "^5.4.2",
     "ts-node": "^8.0.3",
+    "tslib": "^1.10.0",
     "tslint": "^5.14.0",
-    "typescript": "^3.2.4",
+    "typescript": "~3.2.4",
     "webdriver-manager": "^12.1.1"
   }
 }
